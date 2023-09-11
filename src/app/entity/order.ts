@@ -3,6 +3,6 @@ import { BaseEntity } from "./baseEntity";
 export interface Order extends BaseEntity {
     userName: string;
     userEmail: string;
-    userPhone: number;
+    userPhoneNumber: number;
     productName: string;
 }

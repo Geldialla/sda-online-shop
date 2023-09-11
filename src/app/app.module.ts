@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './share/login/login/login.component';
-import { AdminpageComponent } from './admin/admin-page/adminpage/adminpage.component';
-import { OrdersComponent } from './admin/admin-page/orders/orders/orders.component';
+import { LoginComponent } from './share/login/login.component';
+import { AdminpageComponent } from './admin/admin-page/adminpage.component';
+import { OrdersComponent } from './admin/orders/orders.component';
 import { UsersComponent } from './admin/users/users.component';
 import { ProductsComponent } from './admin/products/products.component';
 import { CategoriesComponent } from './admin/categories/categories.component';
@@ -16,6 +16,8 @@ import { ProductListComponent } from './admin/product-list/product-list.componen
 import { CategoryListComponent } from './admin/category-list/category-list.component';
 import { OrderListComponent } from './admin/order-list/order-list.component';
 import { UserListComponent } from './admin/user-list/user-list.component';
+import { FormsModule } from '@angular/forms';
+import { SdaHttpClientModule } from './services/data-layer/sda-be-mock.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { UserListComponent } from './admin/user-list/user-list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    // SdaHttpClientModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

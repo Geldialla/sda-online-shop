@@ -5,5 +5,5 @@ export interface User extends BaseEntity {
     lastName: string;
     email: string;
     adress: string;
-    phone: number;
+    phoneNumber: number;
 }
