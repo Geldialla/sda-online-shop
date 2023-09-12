@@ -5,45 +5,45 @@ import { SdaHttpClient } from './sda-be-mock.service';
 import { dbConfig } from './db.config';
 
 export interface LocalDbConfig {
-    table: string;
-    columns: Array<string>;
+  table: string;
+  columns: Array<string>;
 }
 
 function dbConfigFunction() {
-    const dbConfigLocal: DBConfig = {
-        name: 'SdaBeDB',
-        version: 1,
-        objectStoresMeta: [],
-    };
-    dbConfig.forEach((element) => {
-        dbConfigLocal.objectStoresMeta.push({
-            store: element.table,
-            storeConfig: { keyPath: 'id', autoIncrement: true },
-            storeSchema: [
-                ...element.columns.map((x: string) => {
-                    return {
-                        name: x,
-                        keypath: x,
-                        options: { unique: false },
-                    };
-                }),
-            ],
-        });
+  const dbConfigLocal: DBConfig = {
+    name: 'SdaBeDB',
+    version: 1,
+    objectStoresMeta: [],
+  };
+  dbConfig.forEach((element) => {
+    dbConfigLocal.objectStoresMeta.push({
+      store: element.table,
+      storeConfig: { keyPath: 'id', autoIncrement: true },
+      storeSchema: [
+        ...element.columns.map((x: string) => {
+          return {
+            name: x,
+            keypath: x,
+            options: { unique: false },
+          };
+        }),
+      ],
     });
+  });
 
-    return dbConfigLocal;
+  return dbConfigLocal;
 }
 
 @NgModule({
-    declarations: [],
-    imports: [CommonModule, NgxIndexedDBModule.forRoot(dbConfigFunction())],
-    exports: [NgxIndexedDBModule],
+  declarations: [],
+  imports: [CommonModule, NgxIndexedDBModule.forRoot(dbConfigFunction())],
+  exports: [NgxIndexedDBModule],
 })
 export class SdaHttpClientModule {
-    static forRoot(): ModuleWithProviders<SdaHttpClientModule> {
-        return {
-            ngModule: SdaHttpClientModule,
-            providers: [SdaHttpClient],
-        };
-    }
+  static forRoot(): ModuleWithProviders<SdaHttpClientModule> {
+    return {
+      ngModule: SdaHttpClientModule,
+      providers: [SdaHttpClient],
+    };
+  }
 }

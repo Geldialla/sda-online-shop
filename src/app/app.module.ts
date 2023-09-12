@@ -40,7 +40,7 @@ import { SdaHttpClientModule } from './services/data-layer/sda-be-mock.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    // SdaHttpClientModule.forRoot()
+    SdaHttpClientModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
