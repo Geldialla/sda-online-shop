@@ -2,7 +2,7 @@ import { BaseEntity } from "./baseEntity";
 
 export interface Product extends BaseEntity {
     title: string;
-    name: string;
+    pName: string;
     category: string;
     description: string;
 }

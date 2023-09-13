@@ -1,1 +1,20 @@
-<p>products works!</p>
+<table>
+    <thead>
+      <th>Name</th>
+      <th>Lastname</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producs of product">
+        <td>{{producs.title}}</td>
+        <td>{{producs.pName}}</td>
+        <td>{{producs.category}}</td>
+        <td>{{producs.description}}</td>
+        <td>
+          <button [routerLink]="['/admin/product', producs.id]">Edit</button>
+          <button (click)="deleteUser(producs.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
