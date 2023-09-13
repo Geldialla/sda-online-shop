@@ -1,19 +1,46 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminpageComponent } from './admin/admin-page/adminpage.component';
 import { ProductsComponent } from './admin/products/products.component';
-import { OrdersComponent } from './admin/orders/orders.component';
 import { ProductListComponent } from './admin/product-list/product-list.component';
+import { OrdersComponent } from './admin/orders/orders.component';
 import { OrderListComponent } from './admin/order-list/order-list.component';
+import { CategoriesComponent } from './admin/categories/categories.component';
 import { CategoryListComponent } from './admin/category-list/category-list.component';
 
+
 const routes: Routes = [
-  { path: 'Products', component: ProductsComponent},
-  { path: 'Order', component: OrdersComponent},
-  // { path: 'Products', component: ProductsComponent},
-  { path: 'Product-List', component: ProductListComponent},
-  { path: 'Category-list', component: CategoryListComponent},
-  { path: 'Order-List', component: OrderListComponent},
-];
+  
+  {
+    path: 'Admin', component: AdminpageComponent,
+    children: [
+      {
+        path: 'Products',
+        component: ProductsComponent
+      },
+      {
+        path: 'Products-List',
+        component: ProductListComponent
+      },
+      {
+        path: 'Order',
+        component: OrdersComponent
+      },
+      {
+        path: 'Order-List',
+        component: OrderListComponent
+      },
+      {
+        path: 'Category',
+        component: CategoriesComponent
+      },
+      {
+        path: 'Category-List',
+        component: CategoryListComponent
+      },
+    ]
+
+  }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
