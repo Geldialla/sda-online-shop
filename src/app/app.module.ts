@@ -16,6 +16,7 @@ import { UserListComponent } from './admin/user-list/user-list.component';
 import { FormsModule } from '@angular/forms';
 import { SdaHttpClientModule } from './services/data-layer/sda-be-mock.module';
 import { UserPageComponent } from './user/user-page/user-page.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UserPageComponent } from './user/user-page/user-page.component';
     CategoryListComponent,
     OrderListComponent,
     UserListComponent,
-    UserPageComponent
+    UserPageComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
