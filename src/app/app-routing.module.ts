@@ -6,8 +6,9 @@ import { OrderListComponent } from './admin/order-list/order-list.component';
 import { CategoryListComponent } from './admin/category-list/category-list.component';
 import { OrdersComponent } from './admin/orders/orders.component';
 import { CategoriesComponent } from './admin/categories/categories.component';
-import { ProductsComponent } from './admin/products/products.component';
 import { LoginComponent } from './share/login/login.component';
+import { ProductDetailsComponent } from './user/product-details/product-details.component';
+import { ProductsComponent } from './admin/products/products.component';
 
 
 const routes: Routes = [
@@ -16,9 +17,10 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'Product',
-    component: ProductsComponent
+    path: 'Product-Details',
+    component: ProductDetailsComponent
   },
+  
   {
     path: 'Order',
     component: OrdersComponent
@@ -31,6 +33,10 @@ const routes: Routes = [
   {
     path: 'Admin', component: AdminpageComponent,
     children: [
+      {
+        path: 'Product',
+        component: ProductsComponent
+      },
       {
         path: 'Products-List',
         component: ProductListComponent

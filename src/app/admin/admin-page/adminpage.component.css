@@ -1,10 +1,17 @@
 nav {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   flex-wrap: wrap;
   background: darkred;
-  width: 200px;
+}
+
+.logo h1 {
+  font-size: 4rem;
+}
+
+.logo h1 span {
+  color: #ff004f;
 }
 
 nav ul li {
@@ -33,4 +40,18 @@ nav ul li a::after {
 
 nav ul li a:hover::after {
   width: 100%;
+}
+
+.header-text {
+  margin-top: 20%;
+  font-size: 30px;
+}
+
+.header-text h1 {
+  font-size: 60px;
+  margin-top: 20px;
+}
+
+.header-text h1 span {
+  color: #ff004f;
 }
