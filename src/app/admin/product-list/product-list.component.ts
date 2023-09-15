@@ -41,7 +41,7 @@ export class ProductListComponent implements OnInit {
 
   save() {
     if (this.isEditMode) {
-      this.dbService.put('Product', this.productId, this.product).subscribe((res) => {
+      this.dbService.put('Product', this.productId + 1, this.product).subscribe((res) => {
         console.log(res);
         alert("Product updated")
       })

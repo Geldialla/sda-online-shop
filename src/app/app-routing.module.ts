@@ -4,10 +4,10 @@ import { AdminpageComponent } from './admin/admin-page/adminpage.component';
 import { ProductListComponent } from './admin/product-list/product-list.component';
 import { OrderListComponent } from './admin/order-list/order-list.component';
 import { CategoryListComponent } from './admin/category-list/category-list.component';
-import { LoginComponent } from './share/login/login.component';
 import { OrdersComponent } from './admin/orders/orders.component';
 import { CategoriesComponent } from './admin/categories/categories.component';
 import { ProductsComponent } from './admin/products/products.component';
+import { LoginComponent } from './share/login/login.component';
 
 
 const routes: Routes = [

@@ -4,6 +4,7 @@ nav {
   justify-content: flex-end;
   flex-wrap: wrap;
   background: darkred;
+  width: 200px;
 }
 
 nav ul li {

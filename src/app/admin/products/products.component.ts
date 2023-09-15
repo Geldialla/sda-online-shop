@@ -20,6 +20,7 @@ export class ProductsComponent {
   getData() {
     this.dbService.getAll('Product').subscribe((res) => {
       this.product = res;
+      
     });
   }
 

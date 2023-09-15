@@ -1,23 +1,37 @@
 <table>
-    <thead>
-      <!-- <th>Image</th> -->
-      <th>Title</th>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Description</th>
-      <th>Action</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let producs of product">
-        <!-- <td>{{}}</td> -->
-        <td>{{producs.title}}</td>
-        <td>{{producs.pName}}</td>
-        <td>{{producs.category}}</td>
-        <td>{{producs.description}}</td>
-        <td>
-          <button [routerLink]="['/admin/product', producs.id]">Edit</button>
-          <button (click)="deleteUser(producs.id)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <!-- <th>Image</th> -->
+    <th>Title</th>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Description</th>
+    <th>Action</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let producs of product">
+      <!-- <td>{{}}</td> -->
+      <td>{{producs.title}}</td>
+      <td>{{producs.pName}}</td>
+      <td>{{producs.category}}</td>
+      <td>{{producs.description}}</td>
+      <td>
+        <button [routerLink]="['/admin/product', producs.id]">Edit</button>
+        <button (click)="deleteUser(producs.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <div class="card" style="width: 18rem;" *ngFor="let producs of product">
+  <h5 class="card-title">{{producs.title}}</h5>
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-name">{{producs.pName}}</h5>
+    <h5 class="card-category">{{producs.category}}</h5>
+    <p class="card-text">{{producs.description}}</p>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">Last updated 3 mins ago</small>
+  </div>
+</div> -->
