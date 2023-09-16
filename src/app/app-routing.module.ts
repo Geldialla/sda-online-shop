@@ -3,13 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminpageComponent } from './admin/admin-page/adminpage.component';
 import { ProductListComponent } from './admin/product-list/product-list.component';
 import { OrderListComponent } from './admin/order-list/order-list.component';
-import { CategoryListComponent } from './admin/category-list/category-list.component';
 import { OrdersComponent } from './user/orders/orders.component';
-import { CategoriesComponent } from './admin/categories/categories.component';
 import { LoginComponent } from './share/login/login.component';
 import { ProductsComponent } from './admin/products/products.component';
 import { UserPageComponent } from './user/user-page/user-page.component';
 import { ProductComponent } from './user/product/product.component';
+import { AboutComponent } from './user/about/about.component';
 
 
 const routes: Routes = [
@@ -20,7 +19,7 @@ const routes: Routes = [
   {
     path: 'User',
     component: UserPageComponent,
-    children:[
+    children: [
       {
         path: '',
         redirectTo: 'Product',
@@ -28,7 +27,7 @@ const routes: Routes = [
       },
       {
         path: 'Product',
-        component:ProductComponent
+        component: ProductComponent
       },
       {
         path: 'User-page',
@@ -37,6 +36,10 @@ const routes: Routes = [
       {
         path: 'Order',
         component: OrdersComponent
+      },
+      {
+        path: 'About',
+        component: AboutComponent
       },
     ]
   },
@@ -55,14 +58,6 @@ const routes: Routes = [
         path: 'Order-List',
         component: OrderListComponent
       },
-      {
-        path: 'Category',
-        component: CategoriesComponent
-      },
-      {
-        path: 'Category-List',
-        component: CategoryListComponent
-      }
     ]
 
   }];

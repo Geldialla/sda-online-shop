@@ -2,27 +2,33 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 
-    <link rel="stylesheet" src="product.component.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </head>
-    <body>
-<div class="container">
+  <link rel="stylesheet" src="product.component.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
 
 
-  <div class="row">
- <div class="col-md-4">
-   <figure class="card card-product-grid card-lg">
-     <a href="#" class="img-wrap" data-abc="true"><img src= ></a>
-     <figcaption class="info-wrap">
+    <div class="row">
+
+      <div class="col-md-4" *ngFor="let producs of product">
+        <figure class="card card-product-grid card-lg">
+          <a href="#" class="img-wrap" data-abc="true"><img src=></a>
+          <figcaption class="info-wrap">
             <div class="row">
 
               <div class="col-md-8">
 
-                <a href="#" class="title" data-abc="true">ASUS Laptop - 5GB RAM</a>
+                <a href="#" class="title" data-abc="true">{{producs.title}}</a>
+                <a href="#" class="title" data-abc="true">{{producs.pName}}</a>
+                <a href="#" class="title" data-abc="true">{{producs.category}}</a>
+                <a href="#" class="title" data-abc="true">{{producs.description}}</a>
 
               </div>
 
@@ -43,217 +49,17 @@
 
 
 
-     </figcaption>
-     <div class="bottom-wrap">
-       <a href="#" class="btn  btn-primary float-right" data-abc="true"> Buy now </a>
-       <div class="price-wrap">
-         <span class="price h5">$999</span> <br> <small class="text-success">Free shipping</small>
-       </div>
-     </div>
-   </figure>
- </div>
-
- <div class="col-md-4">
-   <figure class="card card-product-grid card-lg">
-     <a href="#" class="img-wrap" data-abc="true"><img src=></a>
-     <figcaption class="info-wrap">
-            <div class="row">
-
-              <div class="col-md-8">
-
-                <a href="#" class="title" data-abc="true">Dell Laptop - 5GB RAM</a>
-
-              </div>
-
-              <div class="col-md-4">
-
-                <div class="rating text-right">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-
-                </div>
-
-
-
-              </div>
-
+          </figcaption>
+          <div class="bottom-wrap">
+            <a href="#" class="btn  btn-primary float-right" data-abc="true"> Buy now </a>
+            <div class="price-wrap">
+              <span class="price h5">${{producs.price}}</span> <br> <small class="text-success">Free shipping</small>
             </div>
-
-
-
-     </figcaption>
-     <div class="bottom-wrap">
-       <a href="#" class="btn  btn-primary float-right" data-abc="true"> Buy now </a>
-       <div class="price-wrap">
-         <span class="price h5">$999</span> <br> <small class="text-success">Free shipping</small>
-       </div>
-     </div>
-   </figure>
- </div>
-
- <div class="col-md-4">
-   <figure class="card card-product-grid card-lg">
-     <a href="#" class="img-wrap" data-abc="true"><img src=></a>
-     <figcaption class="info-wrap">
-            <div class="row">
-
-              <div class="col-md-8">
-
-                <a href="#" class="title" data-abc="true">Acer Laptop - 5GB RAM</a>
-
-              </div>
-
-              <div class="col-md-4">
-
-                <div class="rating text-right">
-                  <i class="fa fa-star"></i>
-
-
-                </div>
-
-
-
-              </div>
-
-            </div>
-
-
-
-     </figcaption>
-     <div class="bottom-wrap">
-       <a href="#" class="btn  btn-primary float-right" data-abc="true"> Buy now </a>
-       <div class="price-wrap">
-         <span class="price h5">$999</span> <br> <small class="text-success">Free shipping</small>
-       </div>
-     </div>
-   </figure>
- </div>
-
- <div class="col-md-4">
-   <figure class="card card-product-grid card-lg">
-     <a href="#" class="img-wrap" data-abc="true"><img src=></a>
-     <figcaption class="info-wrap">
-            <div class="row">
-
-              <div class="col-md-8">
-
-                <a href="#" class="title" data-abc="true">HP Laptop - 5GB RAM</a>
-
-              </div>
-
-              <div class="col-md-4">
-
-                <div class="rating text-right">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-
-
-                </div>
-
-
-
-              </div>
-
-            </div>
-
-
-
-     </figcaption>
-     <div class="bottom-wrap">
-       <a href="#" class="btn  btn-primary float-right" data-abc="true"> Buy now </a>
-       <div class="price-wrap">
-         <span class="price h5">$999</span> <br> <small class="text-success">Free shipping</small>
-       </div>
-     </div>
-   </figure>
- </div>
-
- <div class="col-md-4">
-   <figure class="card card-product-grid card-lg">
-     <a href="#" class="img-wrap" data-abc="true"><img src=></a>
-     <figcaption class="info-wrap">
-            <div class="row">
-
-              <div class="col-md-8">
-
-                <a href="#" class="title" data-abc="true">Dell Laptop - 5GB RAM</a>
-
-              </div>
-
-              <div class="col-md-4">
-
-                <div class="rating text-right">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-
-
-                </div>
-
-
-
-              </div>
-
-            </div>
-
-
-
-     </figcaption>
-     <div class="bottom-wrap">
-       <a href="#" class="btn  btn-primary float-right" data-abc="true"> Buy now </a>
-       <div class="price-wrap">
-         <span class="price h5">$399</span> <br> <small class="text-success">Free shipping</small>
-       </div>
-     </div>
-   </figure>
- </div>
-
- <div class="col-md-4">
-   <figure class="card card-product-grid card-lg">
-     <a href="#" class="img-wrap" data-abc="true"><img src=></a>
-     <figcaption class="info-wrap">
-            <div class="row">
-
-              <div class="col-md-8">
-
-                <a href="#" class="title" data-abc="true">Dell Laptop - 5GB RAM</a>
-
-              </div>
-
-              <div class="col-md-4">
-
-                <div class="rating text-right">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-
-
-                </div>
-
-
-
-              </div>
-
-            </div>
-
-
-
-     </figcaption>
-     <div class="bottom-wrap">
-       <a href="#" class="btn  btn-primary float-right" data-abc="true"> Buy now </a>
-       <div class="price-wrap">
-         <span class="price h5">$599</span> <br> <small class="text-success">Free shipping</small>
-       </div>
-     </div>
-   </figure>
- </div>
-
-
-</div>
- </div>
-
-
-
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>
 
 </body>
 

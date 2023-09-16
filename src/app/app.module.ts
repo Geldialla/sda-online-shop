@@ -8,15 +8,14 @@ import { AdminpageComponent } from './admin/admin-page/adminpage.component';
 import { OrdersComponent } from './user/orders/orders.component';
 import { UsersComponent } from './admin/users/users.component';
 import { ProductsComponent } from './admin/products/products.component';
-import { CategoriesComponent } from './admin/categories/categories.component';
 import { ProductListComponent } from './admin/product-list/product-list.component';
-import { CategoryListComponent } from './admin/category-list/category-list.component';
 import { OrderListComponent } from './admin/order-list/order-list.component';
 import { UserListComponent } from './admin/user-list/user-list.component';
 import { FormsModule } from '@angular/forms';
 import { SdaHttpClientModule } from './services/data-layer/sda-be-mock.module';
 import { UserPageComponent } from './user/user-page/user-page.component';
 import { ProductComponent } from './user/product/product.component';
+import { AboutComponent } from './user/about/about.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +25,12 @@ import { ProductComponent } from './user/product/product.component';
     OrdersComponent,
     UsersComponent,
     ProductsComponent,
-    CategoriesComponent,
     ProductListComponent,
-    CategoryListComponent,
     OrderListComponent,
     UserListComponent,
     UserPageComponent,
-    ProductComponent
+    ProductComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
