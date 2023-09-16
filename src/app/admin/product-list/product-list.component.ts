@@ -18,6 +18,7 @@ export class ProductListComponent implements OnInit {
     pName: '',
     category: '',
     description: '',
+    price: 0,
   }
 
   constructor(private route: ActivatedRoute,private router: Router, private dbService: SdaHttpClient<Product>) {

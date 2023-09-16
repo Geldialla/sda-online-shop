@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './share/login/login.component';
 import { AdminpageComponent } from './admin/admin-page/adminpage.component';
-import { OrdersComponent } from './admin/orders/orders.component';
+import { OrdersComponent } from './user/orders/orders.component';
 import { UsersComponent } from './admin/users/users.component';
 import { ProductsComponent } from './admin/products/products.component';
 import { CategoriesComponent } from './admin/categories/categories.component';
