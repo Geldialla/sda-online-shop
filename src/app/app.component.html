@@ -1,2 +1,9 @@
-<app-nav-bar></app-nav-bar>
-<!-- <app-login></app-login> -->
+
+<div [ngSwitch]="role">
+    <div *ngSwitch="'admin'">
+        <app-adminpage></app-adminpage>
+    </div>
+    <div *ngSwitchDefault="">
+        <app-user-page></app-user-page>
+    </div>
+</div>

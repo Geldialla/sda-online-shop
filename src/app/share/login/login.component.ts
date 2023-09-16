@@ -26,7 +26,7 @@ export class LoginComponent {
   }
 
   navigateToProduct() {
-    this.router.navigate(['/Product']);
+    this.router.navigate(['/Product-Details']);
   }
 
 }

@@ -2,7 +2,7 @@ import { LocalDbConfig } from './sda-be-mock.module';
 
 export const dbConfig: LocalDbConfig[] = [
     {
-        table: "Users",
+        table: "User",
         columns: ['id', 'name', 'lastName', 'email', 'adress', 'phoneNumber']
       },
     {
@@ -10,7 +10,7 @@ export const dbConfig: LocalDbConfig[] = [
         columns: ['id', 'title', 'name', 'category', 'description']
       },
     {
-        table: "Users",
+        table: "Oreder",
         columns: ['id', 'userName', 'userEmail', 'userPhoneNumber', 'productName']
       },
 ];

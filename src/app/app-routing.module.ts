@@ -9,9 +9,14 @@ import { CategoriesComponent } from './admin/categories/categories.component';
 import { LoginComponent } from './share/login/login.component';
 import { ProductDetailsComponent } from './user/product-details/product-details.component';
 import { ProductsComponent } from './admin/products/products.component';
+import { UserPageComponent } from './user/user-page/user-page.component';
 
 
 const routes: Routes = [
+  {
+    path: 'User',
+    component: UserPageComponent
+  },
   {
     path: 'Login',
     component: LoginComponent
@@ -28,6 +33,10 @@ const routes: Routes = [
   {
     path: 'Category',
     component: CategoriesComponent
+  },
+  {
+    path: 'Product-details',
+    component: ProductDetailsComponent
   },
   
   {

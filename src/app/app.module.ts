@@ -15,8 +15,8 @@ import { OrderListComponent } from './admin/order-list/order-list.component';
 import { UserListComponent } from './admin/user-list/user-list.component';
 import { FormsModule } from '@angular/forms';
 import { SdaHttpClientModule } from './services/data-layer/sda-be-mock.module';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ProductDetailsComponent } from './user/product-details/product-details.component';
+import { UserPageComponent } from './user/user-page/user-page.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +31,8 @@ import { ProductDetailsComponent } from './user/product-details/product-details.
     CategoryListComponent,
     OrderListComponent,
     UserListComponent,
-    NavBarComponent,
     ProductDetailsComponent,
+    UserPageComponent
   ],
   imports: [
     BrowserModule,
@@ -43,4 +43,7 @@ import { ProductDetailsComponent } from './user/product-details/product-details.
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+
+}
