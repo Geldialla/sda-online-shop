@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { SdaHttpClientModule } from './services/data-layer/sda-be-mock.module';
 import { ProductDetailsComponent } from './user/product-details/product-details.component';
 import { UserPageComponent } from './user/user-page/user-page.component';
+import { ProductComponent } from './user/product/product.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UserPageComponent } from './user/user-page/user-page.component';
     OrderListComponent,
     UserListComponent,
     ProductDetailsComponent,
-    UserPageComponent
+    UserPageComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
