@@ -14,6 +14,7 @@ export class ProductListComponent implements OnInit {
   isEditMode: boolean = false;
 
   product: Partial<Product> = {
+    image: '',
     title: '',
     pName: '',
     category: '',

@@ -27,7 +27,7 @@ export class ProductsComponent {
   deleteUser(id: number) {
     this.dbService.delete('Product', id).subscribe((res) => {
       console.log(res);
-      alert('product Deleted');
+      alert('Product Deleted');
       this.getData()
     });
   }

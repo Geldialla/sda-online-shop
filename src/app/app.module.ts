@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './share/login/login.component';
 import { AdminpageComponent } from './admin/admin-page/adminpage.component';
 import { OrdersComponent } from './user/orders/orders.component';
-import { UsersComponent } from './admin/users/users.component';
 import { ProductsComponent } from './admin/products/products.component';
 import { ProductListComponent } from './admin/product-list/product-list.component';
 import { OrderListComponent } from './admin/order-list/order-list.component';
@@ -23,7 +22,6 @@ import { AboutComponent } from './user/about/about.component';
     LoginComponent,
     AdminpageComponent,
     OrdersComponent,
-    UsersComponent,
     ProductsComponent,
     ProductListComponent,
     OrderListComponent,

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/entity/product';
 import { SdaHttpClient } from 'src/app/services/data-layer/sda-be-mock.service';
 
@@ -9,7 +10,7 @@ import { SdaHttpClient } from 'src/app/services/data-layer/sda-be-mock.service';
 })
 export class ProductComponent {
   product: Product[] = [];
-  constructor(private dbService: SdaHttpClient<Product>) {
+  constructor(private router: Router,private dbService: SdaHttpClient<Product>) {
   }
 
   ngOnInit(): void {
@@ -22,4 +23,10 @@ export class ProductComponent {
 
     });
   }
+
+  navigateToOrder() {
+    this.router.navigate(['/User/Order']);
+  }
+
+
 }

@@ -19,16 +19,16 @@
 
       <div class="col-md-4" *ngFor="let producs of product">
         <figure class="card card-product-grid card-lg">
-          <a href="#" class="img-wrap" data-abc="true"><img src=></a>
+          <a href="#" class="img-wrap" data-abc="true"><img src="{{producs.image}}"></a>
           <figcaption class="info-wrap">
             <div class="row">
 
               <div class="col-md-8">
 
-                <a href="#" class="title" data-abc="true">{{producs.title}}</a>
-                <a href="#" class="title" data-abc="true">{{producs.pName}}</a>
-                <a href="#" class="title" data-abc="true">{{producs.category}}</a>
-                <a href="#" class="title" data-abc="true">{{producs.description}}</a>
+                <p href="#" class="title" data-abc="true">{{producs.title}}</p>
+                <p href="#" class="title" data-abc="true">{{producs.pName}}</p>
+                <p href="#" class="title" data-abc="true">{{producs.category}}</p>
+                <p href="#" class="title" data-abc="true">{{producs.description}}</p>
 
               </div>
 
@@ -51,7 +51,7 @@
 
           </figcaption>
           <div class="bottom-wrap">
-            <a href="#" class="btn  btn-primary float-right" data-abc="true"> Buy now </a>
+            <button class="btn  btn-primary float-right" data-abc="true" (click)="navigateToOrder()"> Buy now </button>
             <div class="price-wrap">
               <span class="price h5">${{producs.price}}</span> <br> <small class="text-success">Free shipping</small>
             </div>

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Order } from 'src/app/entity/order';
+import { SdaHttpClient } from 'src/app/services/data-layer/sda-be-mock.service';
 
 @Component({
   selector: 'app-orders',
@@ -6,13 +9,47 @@ import { Component } from '@angular/core';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent {
-  userName: string = '';
-  userEmail: string = '';
-  userPhoneNumber: number | null = null;
-  productName: string = '';
 
-  onSubmit() {
-    // Handle form submission here
-    console.log('Form submitted:', this.userName, this.userEmail, this.userPhoneNumber, this.productName);
+  orderid: number = 0;
+  isEditMode: boolean = false;
+
+  order: Partial<Order> = {
+    userName: '',
+    userEmail: '',
+    userPhoneNumber: 0,
+    productName: '',
+  }
+
+  constructor(private route: ActivatedRoute, private router: Router, private dbService: SdaHttpClient<Order>) {
+    this.orderid = this.route.snapshot.params['id'];
+    this.isEditMode = this.orderid != 0 && this.orderid != undefined;
+  }
+
+  ngOnInit(): void {
+    if (this.isEditMode) {
+      this.getUserData(this.orderid)
+    }
+  }
+
+
+  getUserData(id: number) {
+    this.dbService.getById('Order', id).subscribe((order: Order) => {
+      this.order = order
+    })
+  }
+
+  save() {
+    if (this.isEditMode) {
+      this.dbService.put('Order', this.orderid, this.order as Order).subscribe((res) => {
+        console.log(res);
+        alert("Order updated")
+      })
+    } else {
+      this.dbService.post('Order', this.order as Order).subscribe((res) => {
+        console.log(res);
+        alert("Order created")
+      })
+      this.router.navigate(['/Admin/Order-List']);
+    }
   }
 }

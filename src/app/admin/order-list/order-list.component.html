@@ -1,1 +1,25 @@
-<p>order-list works!</p>
+<div class="heading">
+  <h2>Order List</h2>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>User Name</th>
+      <th>User Email</th>
+      <th>User Phone Number</th>
+      <th>Product Name</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let orders of order">
+    <tr>
+      <td>{{ orders.userName }}</td>
+      <td>{{ orders.userEmail }}</td>
+      <td>{{ orders.userPhoneNumber }}</td>
+      <td>{{ orders.productName }}</td>
+      <td>
+        <button (click)="deleteUser(orders.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
