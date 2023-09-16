@@ -4,7 +4,7 @@ import { AdminpageComponent } from './admin/admin-page/adminpage.component';
 import { ProductListComponent } from './admin/product-list/product-list.component';
 import { OrderListComponent } from './admin/order-list/order-list.component';
 import { CategoryListComponent } from './admin/category-list/category-list.component';
-import { OrdersComponent } from './admin/orders/orders.component';
+import { OrdersComponent } from './user/orders/orders.component';
 import { CategoriesComponent } from './admin/categories/categories.component';
 import { LoginComponent } from './share/login/login.component';
 import { ProductDetailsComponent } from './user/product-details/product-details.component';
@@ -15,7 +15,13 @@ import { UserPageComponent } from './user/user-page/user-page.component';
 const routes: Routes = [
   {
     path: 'User',
-    component: UserPageComponent
+    component: UserPageComponent,
+    children:[
+      {
+        path: 'User-page',
+        component: UserPageComponent
+      }
+    ]
   },
   {
     path: 'Login',
@@ -42,6 +48,11 @@ const routes: Routes = [
   {
     path: 'Admin', component: AdminpageComponent,
     children: [
+      {
+        path: '',
+        redirectTo: 'Product',
+        pathMatch: 'full',
+      },
       {
         path: 'Product',
         component: ProductsComponent
