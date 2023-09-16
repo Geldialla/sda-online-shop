@@ -15,7 +15,6 @@ import { OrderListComponent } from './admin/order-list/order-list.component';
 import { UserListComponent } from './admin/user-list/user-list.component';
 import { FormsModule } from '@angular/forms';
 import { SdaHttpClientModule } from './services/data-layer/sda-be-mock.module';
-import { ProductDetailsComponent } from './user/product-details/product-details.component';
 import { UserPageComponent } from './user/user-page/user-page.component';
 import { ProductComponent } from './user/product/product.component';
 
@@ -32,7 +31,6 @@ import { ProductComponent } from './user/product/product.component';
     CategoryListComponent,
     OrderListComponent,
     UserListComponent,
-    ProductDetailsComponent,
     UserPageComponent,
     ProductComponent
   ],
