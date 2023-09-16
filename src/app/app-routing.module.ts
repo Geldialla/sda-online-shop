@@ -9,6 +9,7 @@ import { CategoriesComponent } from './admin/categories/categories.component';
 import { LoginComponent } from './share/login/login.component';
 import { ProductsComponent } from './admin/products/products.component';
 import { UserPageComponent } from './user/user-page/user-page.component';
+import { ProductComponent } from './user/product/product.component';
 
 
 const routes: Routes = [
@@ -22,8 +23,12 @@ const routes: Routes = [
     children:[
       {
         path: '',
-        redirectTo: 'User-page',
+        redirectTo: 'Product',
         pathMatch: 'full',
+      },
+      {
+        path: 'Product',
+        component:ProductComponent
       },
       {
         path: 'User-page',
