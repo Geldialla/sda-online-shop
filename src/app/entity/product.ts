@@ -5,4 +5,5 @@ export interface Product extends BaseEntity {
     pName: string;
     category: string;
     description: string;
+    price: number;
 }

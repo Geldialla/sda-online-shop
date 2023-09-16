@@ -5,6 +5,7 @@
     <th>Name</th>
     <th>Category</th>
     <th>Description</th>
+    <th>Price</th>
     <th>Action</th>
   </thead>
   <tbody>
@@ -13,6 +14,7 @@
       <td>{{producs.pName}}</td>
       <td>{{producs.category}}</td>
       <td>{{producs.description}}</td>
+      <td>{{producs.price}}</td>
       <td>
         <button [routerLink]="['/admin/products', producs.id]">Edit</button>
         <button (click)="deleteUser(producs.id)">Delete</button>

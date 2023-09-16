@@ -7,52 +7,37 @@ import { CategoryListComponent } from './admin/category-list/category-list.compo
 import { OrdersComponent } from './user/orders/orders.component';
 import { CategoriesComponent } from './admin/categories/categories.component';
 import { LoginComponent } from './share/login/login.component';
-import { ProductDetailsComponent } from './user/product-details/product-details.component';
 import { ProductsComponent } from './admin/products/products.component';
 import { UserPageComponent } from './user/user-page/user-page.component';
 
 
 const routes: Routes = [
   {
-    path: 'User',
-    component: UserPageComponent,
-    children:[
-      {
-        path: 'User-page',
-        component: UserPageComponent
-      }
-    ]
-  },
-  {
     path: 'Login',
     component: LoginComponent
   },
   {
-    path: 'Product-Details',
-    component: ProductDetailsComponent
+    path: 'User',
+    component: UserPageComponent,
+    children:[
+      {
+        path: '',
+        redirectTo: 'User-page',
+        pathMatch: 'full',
+      },
+      {
+        path: 'User-page',
+        component: UserPageComponent
+      },
+      {
+        path: 'Order',
+        component: OrdersComponent
+      },
+    ]
   },
-  
-  {
-    path: 'Order',
-    component: OrdersComponent
-  },
-  {
-    path: 'Category',
-    component: CategoriesComponent
-  },
-  {
-    path: 'Product-details',
-    component: ProductDetailsComponent
-  },
-  
   {
     path: 'Admin', component: AdminpageComponent,
     children: [
-      {
-        path: '',
-        redirectTo: 'Product',
-        pathMatch: 'full',
-      },
       {
         path: 'Product',
         component: ProductsComponent
@@ -64,6 +49,10 @@ const routes: Routes = [
       {
         path: 'Order-List',
         component: OrderListComponent
+      },
+      {
+        path: 'Category',
+        component: CategoriesComponent
       },
       {
         path: 'Category-List',
