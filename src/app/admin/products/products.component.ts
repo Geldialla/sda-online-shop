@@ -16,6 +16,7 @@ export class ProductsComponent {
   ngOnInit(): void {
     this.getData();
   }
+  
 
   getData() {
     this.dbService.getAll('Product').subscribe((res) => {

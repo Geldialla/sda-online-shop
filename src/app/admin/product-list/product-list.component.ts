@@ -21,6 +21,8 @@ export class ProductListComponent implements OnInit {
     description: '',
     price: 0,
   }
+  
+  fileContent: string = '';
 
   constructor(private route: ActivatedRoute, private router: Router, private dbService: SdaHttpClient<Product>) {
     this.productId = +this.route.snapshot.params['id'];
@@ -28,9 +30,23 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    debugger
     if (this.isEditMode) {
       this.getUserData(this.productId);
+    }
+  }
+
+
+  public onChange(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    if (inputElement.files && inputElement.files.length > 0) {
+      const file = inputElement.files[0];
+      const fileReader: FileReader = new FileReader();
+      
+      fileReader.onloadend = (e) => {
+        this.fileContent = fileReader.result as string;
+      };
+
+      fileReader.readAsDataURL(file);
     }
   }
 
@@ -43,17 +59,22 @@ export class ProductListComponent implements OnInit {
 
   save() {
     if (this.isEditMode) {
+      this.product.image = this.fileContent;
       this.dbService.put('Product', this.productId, this.product as Product).subscribe((res) => {
         console.log(res);
         alert('Product updated');
+        this.router.navigate(['/Admin/Product']);
       });
     } else {
+      this.product.image = this.fileContent;
       this.dbService.post('Product', this.product as Product).subscribe((res) => {
         console.log(res);
         alert('Product created');
       });
+      
       this.router.navigate(['/Admin/Product']);
     }
   }
   
+
 }

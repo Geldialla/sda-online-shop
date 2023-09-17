@@ -5,7 +5,6 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Image</th>
       <th>Title</th>
       <th>Name</th>
       <th>Category</th>
@@ -16,15 +15,14 @@
   </thead>
   <tbody *ngFor="let producs of product">
     <tr>
-      <td>{{producs.image}}</td>
       <td>{{producs.title}}</td>
       <td>{{producs.pName}}</td>
       <td>{{producs.category}}</td>
       <td>{{producs.description}}</td>
       <td>{{producs.price}}</td>
       <td>
-        <button [routerLink]="['/Admin/Products-List', producs.id]">Edit</button>
-        <button (click)="deleteUser(producs.id)">Delete</button>
+        <button class="btn btn-success" [routerLink]="['/Admin/Products-List', producs.id]">Edit</button>
+        <button class="btn btn-danger" (click)="deleteUser(producs.id)">Delete</button>
       </td>
     </tr>
   </tbody>
