@@ -11,6 +11,6 @@ export const dbConfig: LocalDbConfig[] = [
       },
     {
         table: "Order",
-        columns: ['id', 'userName', 'userEmail', 'userPhoneNumber', 'productName']
+        columns: ['id', 'userId', 'productId']
       },
 ];

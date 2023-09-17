@@ -17,6 +17,18 @@ export class ProductComponent {
     this.getData();
   }
 
+
+  selectedCategory: string = ''; 
+  filteredProducts: any[] = this.product; 
+
+  filterProducts() {
+    if (this.selectedCategory === 'All Categories') {
+      this.filteredProducts = this.product;
+    } else {
+      this.filteredProducts = this.product.filter((product) => product.category === this.selectedCategory);
+    }
+  }
+
   getData() {
     this.dbService.getAll('Product').subscribe((res) => {
       this.product = res;
