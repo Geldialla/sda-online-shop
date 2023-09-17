@@ -39,7 +39,8 @@
 }
 
 .container .box-container .box img{
-    height: 80px;
+    height: 150px;
+    border-radius: 10px;
 }
 
 .container .box-container .box h3{
