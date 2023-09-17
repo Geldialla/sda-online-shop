@@ -22,14 +22,15 @@ export class ProductListComponent implements OnInit {
     price: 0,
   }
 
-  constructor(private route: ActivatedRoute,private router: Router, private dbService: SdaHttpClient<Product>) {
-    this.productId = this.route.snapshot.params['id'];
-    this.isEditMode = this.productId != 0 && this.productId != undefined;
+  constructor(private route: ActivatedRoute, private router: Router, private dbService: SdaHttpClient<Product>) {
+    this.productId = +this.route.snapshot.params['id'];
+    this.isEditMode = this.productId !== 0 && !isNaN(this.productId);
   }
 
   ngOnInit(): void {
+    debugger
     if (this.isEditMode) {
-      this.getUserData(this.productId)
+      this.getUserData(this.productId);
     }
   }
 
@@ -44,14 +45,15 @@ export class ProductListComponent implements OnInit {
     if (this.isEditMode) {
       this.dbService.put('Product', this.productId, this.product as Product).subscribe((res) => {
         console.log(res);
-        alert("Product updated")
-      })
+        alert('Product updated');
+      });
     } else {
       this.dbService.post('Product', this.product as Product).subscribe((res) => {
         console.log(res);
-        alert("Product created")
-      })
+        alert('Product created');
+      });
       this.router.navigate(['/Admin/Product']);
     }
   }
+  
 }

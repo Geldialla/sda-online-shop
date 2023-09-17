@@ -23,7 +23,7 @@
       <td>{{producs.description}}</td>
       <td>{{producs.price}}</td>
       <td>
-        <button [routerLink]="['/Admin/Product', producs.id]">Edit</button>
+        <button [routerLink]="['/Admin/Products-List', producs.id]">Edit</button>
         <button (click)="deleteUser(producs.id)">Delete</button>
       </td>
     </tr>

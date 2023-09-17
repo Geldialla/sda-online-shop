@@ -8,9 +8,9 @@ import { SdaHttpClient } from 'src/app/services/data-layer/sda-be-mock.service';
   styleUrls: ['./order-list.component.css']
 })
 export class OrderListComponent {
-  order: Order[] = [];
-  constructor(private dbService: SdaHttpClient<Order>) {
-  }
+  orders: Order[] = []; // Renamed from 'order' to 'orders' for clarity
+
+  constructor(private dbService: SdaHttpClient<Order>) {}
 
   ngOnInit(): void {
     this.getData();
@@ -18,16 +18,14 @@ export class OrderListComponent {
 
   getData() {
     this.dbService.getAll('Order').subscribe((res) => {
-      this.order = res;
-      
+      this.orders = res;
     });
   }
 
-  deleteUser(id: number) {
-    this.dbService.delete('Order', id).subscribe((res) => {
-      console.log(res);
+  deleteOrder(id: number) {
+    this.dbService.delete('Order', id).subscribe(() => {
       alert('Order Deleted');
-      this.getData()
+      this.getData(); // Refresh the list after deletion
     });
   }
 }

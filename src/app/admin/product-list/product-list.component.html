@@ -1,26 +1,35 @@
-<div>
-  <label for="image">Product image</label>
-  <input type="file" id="image" [(ngModel)]="product.image">
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="form-group">
+          <label for="image">Product image</label>
+          <input type="file" class="form-control" id="image" accept="image/png, image/jpeg">
+        </div>
+        <div class="form-group">
+          <label for="title">Product title</label>
+          <input type="text" class="form-control" id="title" [(ngModel)]="product.title">
+        </div>
+        <div class="form-group">
+          <label for="pName">Product name</label>
+          <input type="text" class="form-control" id="pName" [(ngModel)]="product.pName">
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select class="form-control" id="category" [(ngModel)]="product.category">
+            <option>Food</option>
+            <option>Clothes</option>
+            <option>Cosmetic</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="description">Product description</label>
+          <input type="text" class="form-control" id="description" [(ngModel)]="product.description">
+        </div>
+        <div class="form-group">
+          <label for="price">Product price</label>
+          <input type="number" class="form-control" id="price" [(ngModel)]="product.price">
+        </div>
+        <button class="btn btn-primary" (click)="save()">Submit</button>
+    </div>
+  </div>
 </div>
-<div>
-  <label for="title">Product title</label>
-  <input type="text" id="title" [(ngModel)]="product.title">
-</div>
-<div>
-  <label for="pName">Product name</label>
-  <input type="text" id="pName" [(ngModel)]="product.pName">
-</div>
-<div>
-  <label for="category">Product category</label>
-  <input type="text" id="category" [(ngModel)]="product.category">
-</div>
-<div>
-  <label for="description">Product description</label>
-  <input type="text" id="description" [(ngModel)]="product.description">
-</div>
-<div>
-  <label for="price">Product price</label>
-  <input type="number" id="price" [(ngModel)]="product.price">
-</div>
-
-<button (click)="save()">Submit</button>

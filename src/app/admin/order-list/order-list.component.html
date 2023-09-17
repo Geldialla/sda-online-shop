@@ -9,16 +9,17 @@
       <th>User Email</th>
       <th>User Phone Number</th>
       <th>Product Name</th>
+      <th>Actions</th> <!-- Added Actions column for Delete button -->
     </tr>
   </thead>
-  <tbody *ngFor="let orders of order">
-    <tr>
-      <td>{{ orders.userName }}</td>
-      <td>{{ orders.userEmail }}</td>
-      <td>{{ orders.userPhoneNumber }}</td>
-      <td>{{ orders.productName }}</td>
+  <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{ order.userName }}</td>
+      <td>{{ order.userEmail }}</td>
+      <td>{{ order.userPhoneNumber }}</td>
+      <td>{{ order.productName }}</td>
       <td>
-        <button (click)="deleteUser(orders.id)">Delete</button>
+        <button (click)="deleteOrder(order.id)">Delete</button>
       </td>
     </tr>
   </tbody>

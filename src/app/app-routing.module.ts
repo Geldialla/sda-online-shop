@@ -59,8 +59,9 @@ const routes: Routes = [
         component: OrderListComponent
       },
     ]
-
-  }];
+  },
+  { path: 'Admin/Products-List/:id', component: ProductListComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
