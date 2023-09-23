@@ -14,10 +14,9 @@ export class OrdersComponent {
   isEditMode: boolean = false;
 
   order: Partial<Order> = {
-    userName: '',
-    userEmail: '',
-    userPhoneNumber: 0,
-    productName: '',
+    userId: undefined,
+    productId: undefined,
+    quanity: undefined,
   }
 
   constructor(private route: ActivatedRoute, private router: Router, private dbService: SdaHttpClient<Order>) {

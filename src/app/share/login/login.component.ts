@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/entity/user';
+import { SdaHttpClient } from 'src/app/services/data-layer/sda-be-mock.service';
 
 @Component({
   selector: 'app-login',
@@ -12,21 +14,36 @@ export class LoginComponent {
   errorMessage: string = '';
   isValidLogin: boolean = true;
 
-  constructor(private router: Router) { }
-
+  constructor(private router: Router, private userService: SdaHttpClient<User>) { }
+  
   login() {
     if (this.email === 'admin@gmail.com' && this.password === 'admin') {
-      console.log('Login successful');
+      console.log('Admin login successful');
       this.router.navigate(['/Admin']);
     } else {
-      console.log('Login failed');
-      this.errorMessage = 'Invalid email or password. Please try again.';
-      this.isValidLogin = false;
+      this.userService.getAll('User').subscribe((users) => {
+        const user = users.find((u) => u.email === this.email && u.password === this.password);
+  
+        if (user) {
+          console.log('User login successful');
+          this.router.navigate(['/User/Product']);
+        } else {
+          console.log('Login failed');
+          this.errorMessage = 'Invalid email or password. Please try again.';
+          this.isValidLogin = false;
+        }
+      });
     }
   }
 
-  navigateToProduct() {
-    this.router.navigate(['/User/Product']);
+  createUser() {
+    
+  }
+
+  navigateToCreateUser() {
+    this.router.navigate(['/CreateUser']);
   }
 
 }
+
+

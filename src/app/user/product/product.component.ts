@@ -9,8 +9,10 @@ import { SdaHttpClient } from 'src/app/services/data-layer/sda-be-mock.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent {
+
   product: Product[] = [];
-  constructor(private router: Router,private dbService: SdaHttpClient<Product>) {
+
+  constructor(private router: Router, private dbService: SdaHttpClient<Product>) {
   }
 
   ngOnInit(): void {
@@ -18,11 +20,11 @@ export class ProductComponent {
   }
 
 
-  selectedCategory: string = ''; 
-  filteredProducts: any[] = this.product; 
+  selectedCategory: string = '';
+  filteredProducts: any[] = this.product;
 
   filterProducts() {
-    if (this.selectedCategory === 'All Categories') {
+    if (this.selectedCategory === '') {
       this.filteredProducts = this.product;
     } else {
       this.filteredProducts = this.product.filter((product) => product.category === this.selectedCategory);
@@ -32,7 +34,7 @@ export class ProductComponent {
   getData() {
     this.dbService.getAll('Product').subscribe((res) => {
       this.product = res;
-
+      this.filteredProducts = this.product;
     });
   }
 

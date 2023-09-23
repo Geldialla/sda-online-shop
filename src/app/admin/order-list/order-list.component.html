@@ -5,19 +5,14 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>User Name</th>
-      <th>User Email</th>
-      <th>User Phone Number</th>
-      <th>Product Name</th>
-      <th>Actions</th> <!-- Added Actions column for Delete button -->
+      <th>User Id</th>
+      <th>Product Email</th>
+      <th>Quanity</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let order of orders">
-      <td>{{ order.userName }}</td>
-      <td>{{ order.userEmail }}</td>
-      <td>{{ order.userPhoneNumber }}</td>
-      <td>{{ order.productName }}</td>
       <td>
         <button class="btn btn-danger" (click)="deleteOrder(order.id)">Delete</button>
       </td>

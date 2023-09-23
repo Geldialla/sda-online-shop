@@ -15,6 +15,7 @@ import { SdaHttpClientModule } from './services/data-layer/sda-be-mock.module';
 import { UserPageComponent } from './user/user-page/user-page.component';
 import { ProductComponent } from './user/product/product.component';
 import { AboutComponent } from './user/about/about.component';
+import { CreateUserComponent } from './share/create-user/create-user.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AboutComponent } from './user/about/about.component';
     UserListComponent,
     UserPageComponent,
     ProductComponent,
-    AboutComponent
+    AboutComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,

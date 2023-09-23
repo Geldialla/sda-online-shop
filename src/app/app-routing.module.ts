@@ -9,22 +9,29 @@ import { ProductsComponent } from './admin/products/products.component';
 import { UserPageComponent } from './user/user-page/user-page.component';
 import { ProductComponent } from './user/product/product.component';
 import { AboutComponent } from './user/about/about.component';
+import { CreateUserComponent } from './share/create-user/create-user.component';
+import { UserListComponent } from './admin/user-list/user-list.component';
 
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'User/Product',
+    pathMatch: 'full',
+  },
+  {
     path: 'Login',
-    component: LoginComponent
+    component: LoginComponent,
+  },
+  {
+    path: 'CreateUser',
+    component: CreateUserComponent
   },
   {
     path: 'User',
     component: UserPageComponent,
     children: [
-      {
-        path: '',
-        redirectTo: 'Product',
-        pathMatch: 'full',
-      },
+      
       {
         path: 'Product',
         component: ProductComponent
@@ -57,6 +64,10 @@ const routes: Routes = [
       {
         path: 'Order-List',
         component: OrderListComponent
+      },
+      {
+        path: 'User-List',
+        component: UserListComponent
       },
     ]
   },

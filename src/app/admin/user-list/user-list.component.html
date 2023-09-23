@@ -1,1 +1,31 @@
-<p>user-list works!</p>
+<div class="heading">
+    <h2>User List</h2>
+  </div>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Adress</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Paswword</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let users of user">
+      <tr>
+        <td>{{users.name}}</td>
+        <td>{{users.lastName}}</td>
+        <td>{{users.adress}}</td>
+        <td>{{users.phoneNumber}}</td>
+        <td>{{users.email}}</td>
+        <td>{{users.password}}</td>
+        <td>
+          <button class="btn btn-success" [routerLink]="['/Admin/Products-List', users.id]">Edit</button>
+          <button class="btn btn-danger" (click)="deleteUser(users.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
