@@ -51,7 +51,7 @@ export class CreateUserComponent {
         console.log(res);
         alert("User created")
       })
-      this.router.navigate(['/Admin/Order-List']);
+      this.router.navigate(['/Login']);
     }
   }
 }

@@ -1,13 +1,19 @@
-
 <nav>
     <div class="logo">
-        <h1><span>Online</span>Shopp.</h1>
-
+      <h1><span>Online</span>Shopp.</h1>
     </div>
     <ul>
-        <li><a routerLink="/User/Product">Products</a></li>
-        <li><a routerLink="/User/About">About</a></li>
-        <li><a routerLink="/Login">Login</a></li>
+      <li><a routerLink="/User/Product">Products</a></li>
+      <li><a routerLink="/User/About">About</a></li>
+      <li>
+        <ng-container *ngIf="loggedIn; else loginLink">
+          <a (click)="logout()">Logout</a>
+        </ng-container>
+        <ng-template #loginLink>
+          <a routerLink="/Login">Login</a>
+        </ng-template>
+      </li>
     </ul>
-</nav>
-<router-outlet></router-outlet>
+  </nav>
+  <router-outlet></router-outlet>
+  

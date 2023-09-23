@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/entity/product';
 import { SdaHttpClient } from 'src/app/services/data-layer/sda-be-mock.service';
@@ -8,20 +8,19 @@ import { SdaHttpClient } from 'src/app/services/data-layer/sda-be-mock.service';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent {
-
+export class ProductComponent implements OnInit {
   product: Product[] = [];
+  selectedCategory: string = '';
+  filteredProducts: Product[] = this.product;
 
-  constructor(private router: Router, private dbService: SdaHttpClient<Product>) {
-  }
+  constructor(
+    private router: Router,
+    private dbService: SdaHttpClient<Product>
+  ) {}
 
   ngOnInit(): void {
     this.getData();
   }
-
-
-  selectedCategory: string = '';
-  filteredProducts: any[] = this.product;
 
   filterProducts() {
     if (this.selectedCategory === '') {
@@ -38,9 +37,7 @@ export class ProductComponent {
     });
   }
 
-  navigateToOrder() {
-    this.router.navigate(['/User/Order']);
+  navigateToOrder(productId: number) {
+    this.router.navigate(['/User/Order'], { queryParams: { productId } });
   }
-
-
 }

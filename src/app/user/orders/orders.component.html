@@ -1,23 +1,13 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <form>
+      <form #orderForm="ngForm" (ngSubmit)="save()">
         <div class="mb-3">
-          <label for="userId" class="form-label">User Id</label>
-          <input type="text" class="form-control form-control-sm" id="userId" [(ngModel)]="order.userId"
-            name="userName">
+          <label for="quantity" class="form-label">Quantity</label>
+          <input type="number" class="form-control form-control-sm" id="quantity"
+            [(ngModel)]="order.quantity" name="quantity">
         </div>
-        <div class="mb-3">
-          <label for="productid" class="form-label">Product Id</label>
-          <input type="email" class="form-control form-control-sm" id="productid" [(ngModel)]="order.productId"
-            name="userEmail">
-        </div>
-        <div class="mb-3">
-          <label for="quanity" class="form-label">Quanity</label>
-          <input type="tel" class="form-control form-control-sm" id="userPhoneNumber"
-            [(ngModel)]="order.quanity" name="userPhoneNumber">
-        </div>
-        <button type="submit" class="btn btn-primary" (click)="save()">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
   </div>

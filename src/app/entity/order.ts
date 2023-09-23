@@ -1,7 +1,8 @@
 import { BaseEntity } from "./baseEntity";
 
 export interface Order extends BaseEntity {
-    userId: number;
+    userName: string;
+    userId: any;
     productId: number;
-    quanity: number;
+    quantity: number;
 }
