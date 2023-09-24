@@ -1,1 +1,20 @@
-<p>category-list works!</p>
+<div class="heading">
+    <h2>Product List</h2>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Category Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let categorys of category">
+      <tr>
+        <td>{{categorys.categoryName}}</td>
+        <td>
+          <button class="btn btn-success" [routerLink]="['/Admin/Products-List', categorys.id]">Edit</button>
+          <button class="btn btn-danger" (click)="deleteUser(categorys.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
