@@ -8,15 +8,15 @@
       </div>
       <div class="form-group">
         <label for="title">Product title</label>
-        <input type="text" class="form-control" id="title" [(ngModel)]="product.title">
+        <input type="text" class="form-control" id="title" [(ngModel)]="product.title" required>
       </div>
       <div class="form-group">
         <label for="pName">Product name</label>
-        <input type="text" class="form-control" id="pName" [(ngModel)]="product.pName">
+        <input type="text" class="form-control" id="pName" [(ngModel)]="product.pName" required>
       </div>
       <div class="form-group">
         <label for="category">Category</label>
-        <select class="form-control" id="category" [(ngModel)]="product.category">
+        <select class="form-control" id="category" [(ngModel)]="product.category" required>
           <option>Food</option>
           <option>Clothes</option>
           <option>Cosmetic</option>
@@ -24,11 +24,11 @@
       </div>
       <div class="form-group">
         <label for="description">Product description</label>
-        <input type="text" class="form-control" id="description" [(ngModel)]="product.description">
+        <input type="text" class="form-control" id="description" [(ngModel)]="product.description" required>
       </div>
       <div class="form-group">
         <label for="price">Product price</label>
-        <input type="number" class="form-control" id="price" [(ngModel)]="product.price">
+        <input type="number" class="form-control" id="price" [(ngModel)]="product.price" required>
       </div>
       <button class="btn btn-success" class="btn btn-primary" (click)="save()">Submit</button>
     </div>

@@ -76,7 +76,7 @@ export class OrdersComponent implements OnInit {
     if (this.isEditMode) {
       this.dbService.put('Order', this.orderid, this.order as Order).subscribe((res) => {
         console.log('Order updated');
-        console.log('User Name:', this.userName); 
+        console.log('User Name:', this.userName);
         console.log('Product Name:', this.product.pName);
         console.log('Quantity:', this.order.quantity);
         localStorage.removeItem('selectedProduct');
@@ -84,11 +84,18 @@ export class OrdersComponent implements OnInit {
         this.router.navigate(['/User/Product']);
       });
     } else {
+      const userString = localStorage.getItem('loggedInUser');
+      if (userString) {
+        const user = JSON.parse(userString);
+        var userId = user.id;
+        console.log('User ID:', userId);
+      }
+      this.order.userId= userId; 
       this.dbService.post('Order', this.order as Order).subscribe((res) => {
         console.log('Order created');
         console.log('User Name:', this.userName);
         console.log('Product Name:', this.product.pName);
-        console.log('Quantity:', this.order.quantity); 
+        console.log('Quantity:', this.order.quantity);
 
         localStorage.removeItem('selectedProduct');
 

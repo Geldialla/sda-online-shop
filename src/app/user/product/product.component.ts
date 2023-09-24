@@ -40,6 +40,8 @@ export class ProductComponent implements OnInit {
   navigateToOrder(productId: number) {
     const userString = localStorage.getItem('loggedInUser');
     if (userString) {
+      const user = JSON.parse(userString);
+      localStorage.setItem('userId', user.id.toString());
       const selectedProduct = this.products.find((product) => product.id === productId);
       if (selectedProduct) {
         localStorage.setItem('selectedProduct', JSON.stringify(selectedProduct));
@@ -49,6 +51,7 @@ export class ProductComponent implements OnInit {
       alert('You need to log in or create an account to continue. Do you want to log in or create an account?');
     }
   }
+  
   
   
   

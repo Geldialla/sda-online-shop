@@ -11,6 +11,9 @@ import { SdaHttpClient } from 'src/app/services/data-layer/sda-be-mock.service';
 })
 export class OrderListComponent implements OnInit {
   orders: Order[] = [];
+  products:Product[]=[];
+  users:User[]=[];
+
 
   constructor(
     private dbService: SdaHttpClient<Order>,
@@ -40,6 +43,14 @@ export class OrderListComponent implements OnInit {
         }
       });
     });
+
+    this.userService.getAll('User').subscribe((users)=>{
+      this.users=users
+    })
+
+    this.productService.getAll('Product').subscribe((prods)=>{
+      this.products=prods
+    })
   }
   
   
@@ -49,5 +60,12 @@ export class OrderListComponent implements OnInit {
       alert('Order Deleted');
       this.getData();
     });
+  }
+
+  getUserNameByUserId(userId: number): string | undefined {
+    return this.users.find(x=>x.id==userId)?.name
+  }
+  getProductNameByProductId(productId: number): string | undefined {
+    return this.products.find(x=>x.id==productId)?.pName
   }
 }
