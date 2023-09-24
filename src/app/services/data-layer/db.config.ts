@@ -13,4 +13,8 @@ export const dbConfig: LocalDbConfig[] = [
     table: "Order",
     columns: ['id', 'userId', 'productId']
   },
+  {
+    table: "Category",
+    columns: ['id', 'CategoryName',]
+  },
 ];

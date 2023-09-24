@@ -16,6 +16,8 @@ import { UserPageComponent } from './user/user-page/user-page.component';
 import { ProductComponent } from './user/product/product.component';
 import { AboutComponent } from './user/about/about.component';
 import { CreateUserComponent } from './share/create-user/create-user.component';
+import { CategoryListComponent } from './admin/category-list/category-list.component';
+import { CategoryDetailsComponent } from './admin/category-details/category-details.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { CreateUserComponent } from './share/create-user/create-user.component';
     UserPageComponent,
     ProductComponent,
     AboutComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    CategoryListComponent,
+    CategoryDetailsComponent
   ],
   imports: [
     BrowserModule,
