@@ -16,7 +16,7 @@ export class CreateUserComponent {
   user: Partial<User> = {
     name: '',
     lastName: '',
-    adress: '',
+    address: '',
     phoneNumber: undefined,
     email: '',
     password: undefined,

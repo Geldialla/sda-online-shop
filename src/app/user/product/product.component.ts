@@ -9,9 +9,9 @@ import { SdaHttpClient } from 'src/app/services/data-layer/sda-be-mock.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  product: Product[] = [];
+  products: Product[] = [];
   selectedCategory: string = '';
-  filteredProducts: Product[] = this.product;
+  filteredProducts: Product[] = [];
 
   constructor(
     private router: Router,
@@ -24,20 +24,32 @@ export class ProductComponent implements OnInit {
 
   filterProducts() {
     if (this.selectedCategory === '') {
-      this.filteredProducts = this.product;
+      this.filteredProducts = this.products;
     } else {
-      this.filteredProducts = this.product.filter((product) => product.category === this.selectedCategory);
+      this.filteredProducts = this.products.filter((product) => product.category === this.selectedCategory);
     }
   }
 
   getData() {
     this.dbService.getAll('Product').subscribe((res) => {
-      this.product = res;
-      this.filteredProducts = this.product;
+      this.products = res;
+      this.filteredProducts = this.products;
     });
   }
 
   navigateToOrder(productId: number) {
-    this.router.navigate(['/User/Order'], { queryParams: { productId } });
+    const userString = localStorage.getItem('loggedInUser');
+    if (userString) {
+      const selectedProduct = this.products.find((product) => product.id === productId);
+      if (selectedProduct) {
+        localStorage.setItem('selectedProduct', JSON.stringify(selectedProduct));
+      }
+      this.router.navigate(['/User/Order'], { queryParams: { productId } });
+    } else {
+      alert('You need to log in or create an account to continue. Do you want to log in or create an account?');
+    }
   }
+  
+  
+  
 }

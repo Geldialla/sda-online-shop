@@ -25,16 +25,24 @@ export class OrderListComponent implements OnInit {
   getData() {
     this.dbService.getAll('Order').subscribe((res) => {
       this.orders = res;
+      // Fetch user name and product name for each order
       this.orders.forEach((order) => {
         this.userService.getById('User', order.userId).subscribe((user: User) => {
           order.userName = user.name;
         });
-        this.productService.getById('Product', order.productId).subscribe((product: Product) => {
-          order.userId = product.pName;
-        });
+        if (order.productId) {
+          this.productService.getById('Product', order.productId).subscribe((product: Product) => {
+            // Check if 'product' is defined before accessing 'pName'
+            if (product) {
+              order.productName = product.pName;
+            }
+          });
+        }
       });
     });
   }
+  
+  
 
   deleteOrder(id: number) {
     this.dbService.delete('Order', id).subscribe(() => {

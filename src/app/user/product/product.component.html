@@ -1,7 +1,8 @@
 <div class="col-md-4 mt-4 mt-md-0">
   <div class="form-group">
     <label for="categoryFilter" class="small">Select Category:</label>
-    <select class="form-control form-control-sm" id="categoryFilter" [(ngModel)]="selectedCategory" (change)="filterProducts()">
+    <select class="form-control form-control-sm" id="categoryFilter" [(ngModel)]="selectedCategory"
+      (change)="filterProducts()">
       <option value="">All Categories</option>
       <option value="Food">Food</option>
       <option value="Clothes">Clothes</option>
@@ -36,7 +37,8 @@
           </div>
         </figcaption>
         <div class="bottom-wrap">
-          <button class="btn  btn-primary float-right" data-abc="true" (click)="navigateToOrder(product.id)"> Buy now </button>
+          <button class="btn btn-primary float-right" data-abc="true" (click)="navigateToOrder(product.id)">Buy
+            now</button>
           <div class="price-wrap">
             <span class="price h5">${{product.price}}</span> <br> <small class="text-success">Free shipping</small>
           </div>

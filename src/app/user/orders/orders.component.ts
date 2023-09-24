@@ -15,16 +15,13 @@ export class OrdersComponent implements OnInit {
   isEditMode: boolean = false;
   order: Partial<Order> = {
     userId: undefined,
-    // Define productId as a number here
-    ['productId']: undefined,
+    productId: undefined,
     quantity: undefined,
   };
-  user: Partial<User> = {
-    name: undefined,
-  };
-  product: Partial<Product> = {
-    pName: undefined,
-  };
+  user: Partial<User> = {};
+  product: Partial<Product> = {};
+
+  userName: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -44,8 +41,20 @@ export class OrdersComponent implements OnInit {
       this.route.queryParams.subscribe((params) => {
         if (params['productId']) {
           this.order['productId'] = params['productId'];
+
+          const productString = localStorage.getItem('selectedProduct');
+          if (productString) {
+            this.product = JSON.parse(productString);
+            console.log('Product Name:', this.product.pName);
+          }
         }
       });
+    }
+
+    const userString = localStorage.getItem('loggedInUser');
+    if (userString) {
+      const user = JSON.parse(userString);
+      this.userName = user.name;
     }
   }
 
@@ -67,21 +76,25 @@ export class OrdersComponent implements OnInit {
     if (this.isEditMode) {
       this.dbService.put('Order', this.orderid, this.order as Order).subscribe((res) => {
         console.log('Order updated');
-        if (this.product && this.user) {
-          console.log('Product Name:', this.product.pName);
-          console.log('User Name:', this.user.name);
-        }
+        console.log('User Name:', this.userName); 
+        console.log('Product Name:', this.product.pName);
+        console.log('Quantity:', this.order.quantity);
+        localStorage.removeItem('selectedProduct');
+
         this.router.navigate(['/User/Product']);
       });
     } else {
       this.dbService.post('Order', this.order as Order).subscribe((res) => {
         console.log('Order created');
-        if (this.product && this.user) {
-          console.log('Product Name:', this.product.pName);
-          console.log('User Name:', this.user.name);
-        }
+        console.log('User Name:', this.userName);
+        console.log('Product Name:', this.product.pName);
+        console.log('Quantity:', this.order.quantity); 
+
+        localStorage.removeItem('selectedProduct');
+
         this.router.navigate(['/User/Product']);
       });
     }
   }
+
 }

@@ -7,12 +7,15 @@
     <tr>
       <th>User Name</th>
       <th>Product Name</th>
-      <th>Quanity</th>
+      <th>Quantity</th>
       <th>Action</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let order of orders">
+      <td>{{ order.userName }}</td>
+      <td>{{ order.productName }}</td>
+      <td>{{ order.quantity }}</td>
       <td>
         <button class="btn btn-danger" (click)="deleteOrder(order.id)">Delete</button>
       </td>
