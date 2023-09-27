@@ -1,49 +1,46 @@
-<div class="col-md-4 mt-4 mt-md-0">
-  <div class="form-group">
-    <label for="categoryFilter" class="small">Select Category:</label>
-    <select class="form-control form-control-sm" id="categoryFilter" [(ngModel)]="selectedCategory"
-      (change)="filterProducts()">
-      <option value="">All Categories</option>
-      <option value="Food">Food</option>
-      <option value="Clothes">Clothes</option>
-      <option value="Cosmetic">Cosmetic</option>
-    </select>
-  </div>
-</div>
 <div class="container">
+
   <div class="row">
-
-    <div class="col-md-4" *ngFor="let product of filteredProducts">
-      <figure class="card card-product-grid card-lg">
-        <a href="#" class="img-wrap" data-abc="true"><img src="{{product.image}}"></a>
-        <figcaption class="info-wrap">
-          <div class="row">
-
-            <div class="col-md-8">
-              <p href="#" class="title" data-abc="true">{{product.title}}</p>
-              <p href="#" class="title" data-abc="true">{{product.pName}}</p>
-              <p href="#" class="title" data-abc="true">{{product.category}}</p>
-              <p href="#" class="title" data-abc="true">{{product.description}}</p>
-            </div>
-
-            <div class="col-md-4">
-              <div class="rating text-right">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-              </div>
-            </div>
-
-          </div>
-        </figcaption>
-        <div class="bottom-wrap">
-          <button class="btn btn-primary float-right" data-abc="true" (click)="navigateToOrder(product.id)">Buy
-            now</button>
-          <div class="price-wrap">
-            <span class="price h5">${{product.price}}</span> <br> <small class="text-success">Free shipping</small>
-          </div>
-        </div>
-      </figure>
+  <div class="col-md-4">
+    <div class="form-group">
+      <label for="categoryFilter">Filter by Category:</label>
+      <select class="form-control" id="categoryFilter" [(ngModel)]="selectedCategory" (change)="applyCategoryFilter()">
+        <option value="0">All Categories</option>
+        <option *ngFor="let category of categories" [value]="category.id">{{ category.categoryName }}</option>
+      </select>
     </div>
   </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4" *ngFor="let product of products">
+    <figure class="card card-product-grid card-lg">
+      <a href="#" class="img-wrap" data-abc="true"><img src="{{product.image}}"></a>
+      <figcaption class="info-wrap">
+        <div class="row">
+          <div class="col-md-8">
+            <p href="#" class="title" data-abc="true">{{product.title}}</p>
+            <p href="#" class="title" data-abc="true">{{product.pName}}</p>
+            <p href="#" class="title" data-abc="true">Category: {{ getCategoryName(product.category) }}</p>
+            <p href="#" class="title" data-abc="true">{{product.description}}</p>
+          </div>
+          <div class="col-md-4">
+            <div class="rating text-right">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </figcaption>
+      <div class="bottom-wrap">
+        <button class="btn btn-primary float-right" data-abc="true" (click)="navigateToOrder(product.id)">Buy
+          now</button>
+        <div class="price-wrap">
+          <span class="price h5">${{product.price}}</span> <br> <small class="text-success">Free shipping</small>
+        </div>
+      </div>
+    </figure>
+  </div>
+</div>
 </div>

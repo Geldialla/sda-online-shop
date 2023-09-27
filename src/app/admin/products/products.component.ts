@@ -12,7 +12,8 @@ export class ProductsComponent {
 
   product: Product[] = [];
   category: Category[] = [];
-  constructor(private dbService: SdaHttpClient<Product>,
+  constructor(
+    private dbService: SdaHttpClient<Product>,
     private categoryService: SdaHttpClient<Category>
     ) {
   }
@@ -28,7 +29,7 @@ export class ProductsComponent {
       
     });
 
-    this.categoryService.getAll('Category',).subscribe((categ) => {
+    this.categoryService.getAll('Category').subscribe((categ) => {
       this.category = categ
     })
   }

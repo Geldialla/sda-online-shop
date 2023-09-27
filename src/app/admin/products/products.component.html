@@ -1,7 +1,3 @@
-<div class="heading">
-  <h2>Product List</h2>
-</div>
-
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -13,16 +9,16 @@
       <th>Action</th>
     </tr>
   </thead>
-  <tbody *ngFor="let producs of product">
+  <tbody *ngFor="let product of product">
     <tr>
-      <td>{{producs.title}}</td>
-      <td>{{producs.pName}}</td>
-      <td>{{producs.category}}</td>
-      <td>{{producs.description}}</td>
-      <td>{{producs.price}}</td>
+      <td>{{ product.title }}</td>
+      <td>{{ product.pName }}</td>
+      <td>{{ getCategoryName(product.category) }}</td> <!-- Use getCategoryName method -->
+      <td>{{ product.description }}</td>
+      <td>{{ product.price }}</td>
       <td>
-        <button class="btn btn-success" [routerLink]="['/Admin/Products-List', producs.id]">Edit</button>
-        <button class="btn btn-danger" (click)="deleteUser(producs.id)">Delete</button>
+        <button class="btn btn-success" [routerLink]="['/Admin/Products-List', product.id]">Edit</button>
+        <button class="btn btn-danger" (click)="deleteUser(product.id)">Delete</button>
       </td>
     </tr>
   </tbody>

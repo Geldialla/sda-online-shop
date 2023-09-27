@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Category } from 'src/app/entity/category';
 import { Product } from 'src/app/entity/product';
 import { SdaHttpClient } from 'src/app/services/data-layer/sda-be-mock.service';
 
@@ -10,32 +11,37 @@ import { SdaHttpClient } from 'src/app/services/data-layer/sda-be-mock.service';
 })
 export class ProductComponent implements OnInit {
   products: Product[] = [];
-  selectedCategory: string = '';
+  categories: Category[] = [];
+  selectedCategory: number = 0;
   filteredProducts: Product[] = [];
 
   constructor(
     private router: Router,
-    private dbService: SdaHttpClient<Product>
+    private dbService: SdaHttpClient<Product>,
+    private categoryService: SdaHttpClient<Category>,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
     this.getData();
   }
 
-  filterProducts() {
-    if (this.selectedCategory === '') {
-      this.filteredProducts = this.products;
-    } else {
-      this.filteredProducts = this.products.filter((product) => product.category === this.selectedCategory);
-    }
-  }
 
   getData() {
     this.dbService.getAll('Product').subscribe((res) => {
       this.products = res;
-      this.filteredProducts = this.products;
+    });
+    
+    this.categoryService.getAll('Category').subscribe((categ) => {
+      this.categories = categ;
     });
   }
+
+  getCategoryName(categoryId: number): string | undefined {
+    const category = this.categories.find(x => x.id === categoryId);
+    return category ? category.categoryName : undefined;
+  }
+
 
   navigateToOrder(productId: number) {
     const userString = localStorage.getItem('loggedInUser');
@@ -53,6 +59,21 @@ export class ProductComponent implements OnInit {
   }
   
   
+  applyCategoryFilter() {
+    console.log('applyCategoryFilter called');
+    
+    if (this.selectedCategory === 0) {
+      this.filteredProducts = this.products;
+    } else {
+      this.filteredProducts = this.products.filter(product => product.category === this.selectedCategory);
+    }
   
+    console.log('selectedCategory:', this.selectedCategory);
+    console.log('filteredProducts:', this.filteredProducts);
+    console.log('products:', this.products);
+    
+    this.cdr.detectChanges();
+  }
+
   
 }
