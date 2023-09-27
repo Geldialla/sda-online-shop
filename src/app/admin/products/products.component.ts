@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Category } from 'src/app/entity/category';
 import { Product } from 'src/app/entity/product';
 import { SdaHttpClient } from 'src/app/services/data-layer/sda-be-mock.service';
 
@@ -10,7 +11,10 @@ import { SdaHttpClient } from 'src/app/services/data-layer/sda-be-mock.service';
 export class ProductsComponent {
 
   product: Product[] = [];
-  constructor(private dbService: SdaHttpClient<Product>) {
+  category: Category[] = [];
+  constructor(private dbService: SdaHttpClient<Product>,
+    private categoryService: SdaHttpClient<Category>
+    ) {
   }
 
   ngOnInit(): void {
@@ -23,6 +27,14 @@ export class ProductsComponent {
       this.product = res;
       
     });
+
+    this.categoryService.getAll('Category',).subscribe((categ) => {
+      this.category = categ
+    })
+  }
+
+  getCategoryName(categoryId: number): string | undefined {
+    return this.category.find(x => x.id == categoryId)?.categoryName
   }
 
   deleteUser(id: number) {

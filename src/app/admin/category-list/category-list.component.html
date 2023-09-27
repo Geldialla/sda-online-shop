@@ -8,11 +8,11 @@
         <th>Action</th>
       </tr>
     </thead>
-    <tbody *ngFor="let categorys of category">
+    <tbody *ngFor="let categorys of categories">
       <tr>
         <td>{{categorys.categoryName}}</td>
         <td>
-          <button class="btn btn-success" [routerLink]="['/Admin/Products-List', categorys.id]">Edit</button>
+          <button class="btn btn-success" [routerLink]="['/Admin/Category-Details', categorys.id]">Edit</button>
           <button class="btn btn-danger" (click)="deleteUser(categorys.id)">Delete</button>
         </td>
       </tr>

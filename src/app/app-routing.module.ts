@@ -11,6 +11,8 @@ import { ProductComponent } from './user/product/product.component';
 import { AboutComponent } from './user/about/about.component';
 import { CreateUserComponent } from './share/create-user/create-user.component';
 import { UserListComponent } from './admin/user-list/user-list.component';
+import { CategoryDetailsComponent } from './admin/category-details/category-details.component';
+import { CategoryListComponent } from './admin/category-list/category-list.component';
 
 
 const routes: Routes = [
@@ -69,9 +71,19 @@ const routes: Routes = [
         path: 'User-List',
         component: UserListComponent
       },
+      {
+        path: 'Category-Details',
+        component: CategoryDetailsComponent
+      },
+      {
+        path: 'Category-List',
+        component: CategoryListComponent
+      },
     ]
   },
-  { path: 'Admin/Products-List/:id', component: ProductListComponent }
+  { path: 'Admin/Products-List/:id', component: ProductListComponent },
+  { path: 'Admin/Category-Details/:id', component: CategoryDetailsComponent },
+
 ];
 
 @NgModule({
